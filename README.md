@@ -1,1 +1,1 @@
-Source code for [my homepage](ankitshankar.com).
+Source code for [my homepage](http://ankitshankar.com).
