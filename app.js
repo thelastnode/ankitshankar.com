@@ -1,6 +1,11 @@
 var coffee = require('coffee-script');
 var express = require('express');
 var routes = require('./routes');
+var mongoose = require('mongoose');
+
+var conf = require('./conf');
+
+mongoose.connect(conf.mongo_uri);
 
 var app = module.exports = express.createServer();
 
