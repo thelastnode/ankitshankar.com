@@ -12,10 +12,7 @@ Post = new Schema
   title: String
   body: String
   date: Date
-  tags: [{
-    type: String
-    ref: 'Tag'
-  }]
+  tags: [String]
 
 exports.Tag = mongoose.model('Tag', Tag)
 exports.Post = mongoose.model('Post', Post)
