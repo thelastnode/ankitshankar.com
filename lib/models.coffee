@@ -11,6 +11,7 @@ Tag = new Schema
 Post = new Schema
   title: String
   body: String
+  date: Date
   tags: [{
     type: String
     ref: 'Tag'
