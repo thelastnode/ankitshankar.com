@@ -1,3 +1,14 @@
 div.container {
     margin-top: 60px;
 }
+
+.nav-link {
+    margin-top: 1em;
+    margin-right: 1em;
+    float: right;
+    text-decoration: none;
+}
+
+#logo a {
+    text-decoration: none;
+}

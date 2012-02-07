@@ -12,4 +12,12 @@ html(lang="en")
     link(rel='stylesheet', href='/stylesheets/layout.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    .container!= body
+    .container
+      header
+        nav
+          a(href='#').nav-link Feed
+          a(href='https://facebook.com/ankit.shankar').nav-link Me
+          h3#logo
+            a(href='/') Ankit Shankar
+          hr
+      != body
