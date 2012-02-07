@@ -1,0 +1,10 @@
+each post in posts
+  h1= post.title
+  p= post.date
+  each tag in post.tags
+    a(href='/tags/' + encodeURIComponent(tag))= tag
+  != post.body
+
+if newer_page
+  a(href=newer_page) Newer Posts
+  a(href=older_page) Older Posts
