@@ -1,4 +1,6 @@
 async = require 'async'
+url = require 'url'
+
 models = require '../lib/models'
 
 exports.list = (req, res, next) ->
@@ -28,16 +30,18 @@ exports.list = (req, res, next) ->
     total = results[1]
 
     has_newer = req.query.skip and req.query.skip > 0 and total > 0
-    has_older = (total - posts.length * (req.query.skip || 1)) > 0
+    has_older = ((req.query.skip || 0) + posts.length) < total
 
-    newer = (req.query.skip || 0) + limit
-    older = (req.query.skip || 0) - limit
+    newer = (req.query.skip || 0) - limit
+    older = (req.query.skip || 0) + limit
+
+    norm_url = url.parse(req.url)
 
     res.render 'list',
       title: 'Ankit Shankar'
       posts: posts
-      newer_page: has_newer and (req.url + '?skip=' + newer)
-      older_page: has_older and (req.url + '?skip=' + older)
+      newer_page: has_newer and "#{norm_url.pathname}?skip=#{newer}"
+      older_page: has_older and "#{norm_url.pathname}?skip=#{older}"
   )
 
 exports.details = (req, res, next) ->
